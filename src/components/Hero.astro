@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/tablet/image-hero.png";
+---
+
+<section>
+    <Image src={heroImage} alt="people in circles" />
+    <h1 class="text-5xl font-black text-center">
+        Group Chat <br>
+        for Everyone
+    </h1>
+    <p class="text-center text-slate-600">
+        Meet makes it easy to connect with others face-to-face virtually and
+        collaborate across any device.
+    </p>
+    <div class="flex flex-col items-center gap-4 mt-6">
+        <a href="/"
+            class="rounded-full w-[193px] bg-cyan-600 text-white px-10 py-4 font-black text-center"
+        >
+            Download <span class="text-cyan-300">v1.3</span>
+        </a>
+        <a 
+            href="/"
+            class="rounded-full w-[161px] bg-purple-600 text-white px-10 py-4 font-black text-center"
+        >
+            What is it?
+        </a>
+    </div>
+</section>
