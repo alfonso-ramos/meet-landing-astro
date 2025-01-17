@@ -18,7 +18,7 @@ export default {
 		},
 		extend: {
 			backgroundImage: {
-				'footer-mobile': "url('/assets/mobile/image-footer.jpg')",
+				'footer-mobile': "url('./src/assets/mobile/image-footer.jpg')",
 				'footer-tablet': "url('./src/assets/tablet/image-footer.jpg')",
 				'footer-desktop': "url('./src/assets/desktop/image-footer.jpg')",
 			}
