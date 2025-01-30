@@ -16,7 +16,13 @@ export default {
 			"slate-300": "#D1D1DF",
 
 		},
-		extend: {},
+		extend: {
+			backgroundImage: {
+				'footer-mobile': "url('./src/assets/mobile/image-footer.jpg')",
+				'footer-tablet': "url('./src/assets/tablet/image-footer.jpg')",
+				'footer-desktop': "url('./src/assets/desktop/image-footer.jpg')",
+			}
+		},
 	},
 	plugins: [],
 }
