@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from "astro:assets";
-import Header from '../components/Header.astro'
-import Hero from '../components/Hero.astro'
+import { getImage, Image } from "astro:assets";
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 
 import womanVideocall from "../assets/desktop/image-woman-in-videocall.jpg";
 import menInMeeting from "../assets/desktop/image-men-in-meeting.jpg";
@@ -10,56 +10,63 @@ import womenVideochatting from "../assets/desktop/image-women-videochatting.jpg"
 import manTexting from "../assets/desktop/image-man-texting.jpg";
 import Footer from '../components/Footer.astro';
 
+function getImageSize(width: number) {
+	if (width < 768) {
+		return 144; 
+	} else  {
+		return 160; 
+	} 
+	
+}
+
+// Calcular el tamaño inicial (en el servidor)
+const screenWidth = globalThis?.window?.innerWidth; // Asignar un valor por defecto
+const imageSize = getImageSize(screenWidth);
 ---
 
 <Layout>
 	<Header />
 	<div class="max-w-[90%] mx-auto">
-
 		<Hero />
 		<div class="mt-16">
-			<div class="w-[1px] h-20 bg-slate-300 mx-auto">
-
-			</div>
+			<div class="w-[1px] h-20 bg-slate-300 mx-auto"></div>
 			<div class="mx-auto text-center border-slate-300 border size-[56px] rounded-full pt-3.5 text-slate-600 font-black">
 				<p>01</p>
 			</div>
-
 		</div>
 	
-		<div class="grid grid-cols-2 gap-4 w-[310px] mx-auto mt-16">
+		<div class="grid grid-cols-2 gap-4 w-[310px] md:w-[680px] mx-auto mt-16 md:flex md:justify-center ">
 			<Image 
 				src={womanVideocall}
-				alt='Woman in videocall'
-				height=144
-				width=144
-				class='rounded-md'
+				alt="Woman in videocall"
+				width={imageSize}
+				height={imageSize}
+				class="rounded-md"
 			/>
 			<Image 
 				src={menInMeeting}
-				alt='Men in meeting'
-				height=144
-				width=144
-				class='rounded-md'
+				alt="Men in meeting"
+				width={imageSize}
+				height={imageSize}
+				class="rounded-md"
 			/>
 			<Image 
 				src={womenVideochatting}
-				alt='Women Videochatting'
-				height=144
-				width=144
-				class='rounded-md'
+				alt="Women videochatting"
+				width={imageSize}
+				height={imageSize}
+				class="rounded-md"
 			/>
 			<Image 
 				src={manTexting}
-				alt='Man texting'
-				height=144
-				width=144
-				class='rounded-md'
+				alt="Man texting"
+				width={imageSize}
+				height={imageSize}
+				class="rounded-md"
 			/>
-		
 		</div>
 	
-		<div class="text-center mt-16">
+		<div class="text-center mt-16 md:w-[504px] mx-auto">
 			<p class="uppercase font-black text-cyan-600 tracking-widest text-xs"> 
 				Built for modern use
 			</p>
@@ -69,18 +76,14 @@ import Footer from '../components/Footer.astro';
 			<p class="text-slate-600">
 				Send messages, share files, show your screen, and record your meetings — all in one workspace. Control who can join with invite-only team access, data encryption, and data export.
 			</p>
-	
 		</div>
 	
 		<div class="mt-16 relative top-8">
-			<div class="w-[1px] h-20 bg-slate-300 mx-auto">
-			</div>
+			<div class="w-[1px] h-20 bg-slate-300 mx-auto"></div>
 			<div class="mx-auto text-center border-slate-300 border size-[56px] rounded-full pt-3.5 text-slate-600 font-black bg-white">
 				<p>02</p>
 			</div>
-
 		</div>
-		
 	</div>
 	<Footer />
 </Layout>
